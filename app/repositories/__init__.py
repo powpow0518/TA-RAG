@@ -1,0 +1,6 @@
+from app.repositories.course_repository import course_repository
+from app.repositories.question_repository import question_repository
+from app.repositories.quiz_repository import quiz_repository
+from app.repositories.rag_repository import rag_repository
+from app.repositories.user_repository import user_repository
+

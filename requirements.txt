@@ -1,0 +1,48 @@
+# --- FastAPI & Uvicorn ---
+fastapi>=0.110.0
+uvicorn>=0.29.0
+python-multipart
+python-dotenv
+pydantic>=2.7.4
+pydantic-settings
+
+# --- Database ---
+sqlalchemy
+psycopg2-binary
+asyncpg
+alembic
+redis
+pgvector
+
+# --- RAG & AI ---
+google-generativeai
+voyageai
+langchain
+langchain-community
+langchain-core
+langchain-voyageai
+langchain-qdrant
+qdrant-client
+fastembed
+
+# --- File Parsing & ETL ---
+pymupdf
+docx2txt
+python-pptx
+openpyxl
+pandas
+unstructured
+networkx
+msoffcrypto-tool
+
+# --- Tools & Others ---
+httpx>=0.27.0
+requests
+email-validator
+passlib[bcrypt]
+python-jose[cryptography]
+tenacity
+apscheduler
+pytest
+pytest-asyncio
+pytest-env
