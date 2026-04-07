@@ -1,13 +1,13 @@
 # TA_RAG
 
-`TA_RAG` is a teaching-assistant style RAG project that I adapted from a real internal codebase into a version I can show publicly.
+`TA_RAG` is a teaching-assistant style RAG project for course-based question answering, quiz generation, and answer grading.
 
 There are two main parts:
 
 - course-based question answering
 - quiz generation and grading
 
-I did not try to turn this into a fake "perfect" production project. The goal here is to show the core workflow, the architecture I cleaned up around it, and how the system behaves end to end.
+This project focuses on the core workflow, the supporting architecture, and the end-to-end behavior of the system.
 
 ## What this project does
 
@@ -15,18 +15,18 @@ The backend is built with FastAPI and SQLAlchemy. Retrieval uses Qdrant with den
 
 The frontend is intentionally small. It exists so the main flows can be demonstrated without extra setup.
 
-## What I kept intact
+## Architecture notes
 
-The central logic in `app/services/rag_service.py` and `app/services/quiz_service.py` comes from the source project. In this public version, I treated the prompt and retrieval flow as protected logic and avoided rewriting it into a different design just for the sake of presentation.
+The central logic lives in `app/services/rag_service.py` and `app/services/quiz_service.py`. The prompt and retrieval flow remain concentrated there so the main application behavior stays easy to follow.
 
-What I did change was everything around it:
+The surrounding structure is split as follows:
 
 - API concerns stay in `app/api`
 - database access is pulled into `app/repositories`
 - external client setup is pulled into `app/providers`
 - orchestration remains in `app/services`
 
-That split makes the repo easier to explain and much easier to maintain than the original copied snapshot.
+That split keeps responsibilities clearer and makes the repo easier to maintain.
 
 ## Stack
 
@@ -86,17 +86,17 @@ If you want ready-to-use GitHub push commands and a release draft, use [docs/git
 ## Things I would improve next
 
 - migrate the Gemini integration away from the deprecated SDK
-- add better integration coverage around the protected RAG flow
-- separate more of the prompt-heavy service logic if the source constraints are relaxed
+- add better integration coverage around the RAG flow
+- separate more of the prompt-heavy service logic into smaller units
 
 ## Why this repo exists
 
-This repo is meant to show how I handle a real system when I need to make it presentable:
+This repo is meant to demonstrate a teaching-assistant RAG workflow in a form that is easy to run, inspect, and extend:
 
-- keep the important behavior intact
-- remove secrets and internal-only details
+- keep the main behavior easy to trace
 - make the structure understandable
-- leave the project honest enough that it still feels real
+- provide a small UI for demonstrating the core flows
+- keep the system practical enough for local experimentation
 
 ## Before pushing anywhere public
 
